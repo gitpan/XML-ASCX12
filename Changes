@@ -1,0 +1,8 @@
+Revision history for Perl extension XML::ASCX12.
+$Id: Changes,v 1.2 2004/08/25 21:49:37 brian.kaney Exp $
+
+
+0.01  Wed Aug 25 16:46:42 2004
+    - original version; created by h2xs 1.23 with options
+        -AX -n XML::ASCX12
+
