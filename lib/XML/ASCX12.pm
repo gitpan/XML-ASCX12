@@ -1,5 +1,5 @@
 #
-# $Id: ASCX12.pm,v 1.15 2004/08/25 21:39:59 brian.kaney Exp $
+# $Id: ASCX12.pm,v 1.16 2004/09/20 19:07:19 brian.kaney Exp $
 #
 # XML::ASCX12
 #
@@ -113,7 +113,7 @@ use warnings;
 no warnings 'utf8';
 use bytes;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 =head1 REQUIREMENTS
 
@@ -502,6 +502,7 @@ loop.  It is called by C<_closeloop()>.
 sub _execclose
 {
     my ($self, $loop) = @_;
+    return unless $loop;
     if ($loop =~ /[A-Za-z0-9]*/)
     {
         pop @_LOOPS;
@@ -534,8 +535,7 @@ to determine if a parent is allowed to have the child loop. Returns C<0> or C<1>
 sub _CANHAVE
 {
     my ($parent, $child) = @_;
-    return 0 unless $parent;
-    if ($parent eq "") { return 1; } # root-level's can have anything
+    if (!$parent) { return 1; } # root-level can have anything
     return 0 unless $child;
     foreach (@{$XML::ASCX12::Catalogs::LOOPNEST->{$parent}}) { if ($_ eq $child) { return 1; } }
     return 0;

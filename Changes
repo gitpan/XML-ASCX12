@@ -1,6 +1,9 @@
 Revision history for Perl extension XML::ASCX12.
-$Id: Changes,v 1.2 2004/08/25 21:49:37 brian.kaney Exp $
+$Id: Changes,v 1.3 2004/09/20 19:11:05 brian.kaney Exp $
 
+0.02  Mon Sep 20 15:08:44 EDT 2004 
+    - Fixed a problem with _CANHAVE()
+    - Suppressed an error warning in _execclose()
 
 0.01  Wed Aug 25 16:46:42 2004
     - original version; created by h2xs 1.23 with options
