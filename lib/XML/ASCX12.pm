@@ -1,5 +1,5 @@
 #
-# $Id: ASCX12.pm,v 1.16 2004/09/20 19:07:19 brian.kaney Exp $
+# $Id: ASCX12.pm,v 1.17 2004/09/28 14:59:34 brian.kaney Exp $
 #
 # XML::ASCX12
 #
@@ -66,8 +66,8 @@ A quick background of how a typical EDI is formed:
 
 
 
-The Transmission Envelope can have one or more Functional Groups.  A Functional Group
-can have one ore more Transaction Sets.  Then each specific catalog (transaction set)
+The Transmission Envelope can have one or more Functional Group.  A Functional Group
+can have one or more Transaction Set.  Then each specific catalog (transaction set)
 can have it's own hierarchical rules.
 
 This sort of structure really lends itself to XML.  So using the power of Perl,
@@ -113,7 +113,7 @@ use warnings;
 no warnings 'utf8';
 use bytes;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 =head1 REQUIREMENTS
 
@@ -394,7 +394,7 @@ sub _proc_element
 {
     my ($self, $segcode, @elements) = @_;
     my $i = 1;
-    my $xml;
+    my $xml = '';
     foreach (@elements)
     {
         if ($_ =~ /[0-9A-Za-z]/)
